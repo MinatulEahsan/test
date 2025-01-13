@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: transform 0.3s ease;
+        }
+
+        select:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            display: none;
+            animation: fadeIn 1s forwards;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation App</h1>
+        <form id="movieForm">
+            <label for="genre">Preferred Genre:</label>
+            <select id="genre" required>
+                <option value="">Select Genre</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+
+            <label for="duration">Preferred Movie Duration:</label>
+            <select id="duration" required>
+                <option value="">Select Duration</option>
+                <option value="Short">Short (under 90 minutes)</option>
+                <option value="Medium">Medium (90-120 minutes)</option>
+                <option value="Long">Long (over 120 minutes)</option>
+            </select>
+
+            <label for="mood">Mood:</label>
+            <select id="mood" required>
+                <option value="">Select Mood</option>
+                <option value="Happy">Happy</option>
+                <option value="Relaxed">Relaxed</option>
+                <option value="Excited">Excited</option>
+                <option value="Adventurous">Adventurous</option>
+            </select>
+
+            <button type="button" onclick="recommendMovie()">Get Recommendation</button>
+        </form>
+
+        <div id="recommendation" class="recommendation"></div>
+    </div>
+
+    <script>
+        const movieDatabase = {
+            Action: {
+                Short: ["Crank", "John Wick", "The Raid: Redemption", "Hardcore Henry", "Taken"],
+                Medium: ["Mad Max: Fury Road", "Gladiator", "Edge of Tomorrow", "Die Hard", "Kingsman: The Secret Service"],
+                Long: ["Inception", "The Dark Knight", "Avengers: Endgame", "The Matrix", "Fast & Furious 7"]
+            },
+            Comedy: {
+                Short: ["Superbad", "Step Brothers", "The Hangover", "Napoleon Dynamite", "Zombieland"],
+                Medium: ["The Grand Budapest Hotel", "Anchorman", "Pineapple Express", "Tropic Thunder", "Bridesmaids"],
+                Long: ["The Wolf of Wall Street", "Once Upon a Time in Hollywood", "Funny People", "Knives Out", "Big Lebowski"]
+            },
+            Drama: {
+                Short: ["Lady Bird", "Room", "Moonlight", "Manchester by the Sea", "The Florida Project"],
+                Medium: ["Forrest Gump", "The Pursuit of Happyness", "A Beautiful Mind", "Slumdog Millionaire", "Whiplash"],
+                Long: ["The Shawshank Redemption", "Interstellar", "The Godfather", "Schindler's List", "The Green Mile"]
+            },
+            Horror: {
+                Short: ["Paranormal Activity", "It Follows", "Hush", "The Blair Witch Project", "Lights Out"],
+                Medium: ["Get Out", "Hereditary", "A Quiet Place", "The Conjuring", "Insidious"],
+                Long: ["It", "Doctor Sleep", "The Shining", "Midsommar", "The Exorcist"]
+            }
+        };
+
+        function recommendMovie() {
+            const genre = document.getElementById('genre').value;
+            const duration = document.getElementById('duration').value;
+            const recommendationDiv = document.getElementById('recommendation');
+
+            if (genre && duration) {
+                const movies = movieDatabase[genre][duration];
+                const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+                recommendationDiv.style.display = 'block';
+                recommendationDiv.textContent = `We recommend watching "${randomMovie}"!`;
+            } else {
+                recommendationDiv.style.display = 'block';
+                recommendationDiv.textContent = 'Please select both genre and duration.';
+            }
+        }
+    </script>
+</body>
+</html>
