@@ -1,8 +1,26 @@
-Movie Recommendation App
-This is a simple web application that recommends movies based on the user's preferred genre, movie duration, and mood. It guides users through selecting options via dropdown menus and provides a personalized movie suggestion based on their choices.
+Hi there! 👋 I'm Minat Ul Eahsan
+Welcome to my GitHub profile! I'm a Full-Stack Developer passionate about building dynamic and scalable web applications. I specialize in developing robust solutions using modern web technologies.
 
-Features
-Dropdown Selections: Users can choose their preferred genre, movie duration, and mood from dropdown menus.
-Dynamic Recommendations: Based on user selections, the app generates a random movie recommendation from a predefined list.
-Responsive Design: The app is designed to work seamlessly on both desktop and mobile devices.
-Animation: Smooth animation effects on dropdown hover and recommendation display.
+🚀 About Me
+🎓 Education: B.C.A. 
+🌍 Location: Srinagar, J&K, India
+📧 Email: minathussainshah328@gmail.com
+📞 Contact: +91 9596558228
+🛠️ Skills & Technologies
+Frontend Development:
+HTML5, CSS3, Bootstrap
+JavaScript (ES6+), TypeScript
+Angular, React
+Responsive Web Design (RWD)
+Backend Development:
+ASP.NET Core
+C#
+RESTful APIs & .NET Web APIs
+Database Management:
+MySQL
+SQL Server
+GitHub, Git
+Other Skills:
+Problem-solving & Debugging
+Strong Understanding of Software Development Lifecycle (SDLC)
+
